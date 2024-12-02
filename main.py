@@ -8,7 +8,6 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         uic.loadUi('UI.ui', self)
-        self.drawButton = self.findChild(QtWidgets.QPushButton, 'drawButton')
         self.drawButton.clicked.connect(self.draw_circle)
 
         self.circles = []
@@ -24,7 +23,7 @@ class MainWindow(QMainWindow):
             x = random.randint(0, self.width() - diameter)
             y = random.randint(0, self.height() - diameter)
             painter.setBrush(QColor('yellow'))
-            painter.drawEllipse(x, y, diameter)
+            painter.drawEllipse(x, y, diameter, diameter)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
